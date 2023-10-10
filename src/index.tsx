@@ -111,11 +111,11 @@ export default function Command() {
               setDebtTemperature(debtTemperature);
               // setStatus("success");
               isDebtTemperatureUp = false;
-            } else if (isDebtTemperatureDown){
+            } else if (isDebtTemperatureDown) {
               const debtTemperature = text.trim() + " 温度下降";
               setDebtTemperature(debtTemperature);
               isDebtTemperatureDown = false;
-            } else if (isthefirst){
+            } else if (isthefirst) {
               temcomment += text.trim() + " ";
               setTemcomment(temcomment);
               isthefirst = false;
@@ -127,9 +127,9 @@ export default function Command() {
               isTemperature = true;
             } else if (name === "span" && attributes.class === "tw-font-semibold trend-gt") {
               isDebtTemperatureUp = true;
-            } else if (name === "span" && attributes.class === "tw-font-semibold trend-lt"){
+            } else if (name === "span" && attributes.class === "tw-font-semibold trend-lt") {
               isDebtTemperatureDown = true;
-            } else if (name === "div" && attributes.class === "tw-leading-normal"){
+            } else if (name === "div" && attributes.class === "tw-leading-normal") {
               isthefirst = true;
             }
           },
