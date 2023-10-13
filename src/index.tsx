@@ -107,12 +107,12 @@ export default function Command() {
               // setStatus("success");
               isTemperature = false;
             } else if (isDebtTemperatureUp) {
-              const debtTemperature = text.trim() + ", Up";
+              const debtTemperature = text.trim() + ", Sentiment Up";
               setDebtTemperature(debtTemperature);
               // setStatus("success");
               isDebtTemperatureUp = false;
             } else if (isDebtTemperatureDown) {
-              const debtTemperature = text.trim() + ", Down";
+              const debtTemperature = text.trim() + ", Sentiment Down";
               setDebtTemperature(debtTemperature);
               isDebtTemperatureDown = false;
             } else if (isthefirst) {
@@ -123,7 +123,7 @@ export default function Command() {
               } else if (temp_text == "高估") {
                 temp_text = "Overestimate";
                 temcomment += temp_text + ", ";
-              } else if (temp_text == "正常") {
+              } else if (temp_text == "中估") {
                 temp_text = "Normal";
                 temcomment += temp_text + ", ";
               } else if (temp_text == "温度上升") {
