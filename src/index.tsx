@@ -2,6 +2,7 @@ import { ActionPanel, List, Action } from "@raycast/api";
 import { useState, useEffect } from "react";
 import { Parser } from "htmlparser2";
 import fetch from "node-fetch";
+import { log } from "console";
 
 export type LoadingStatus = "loading" | "success" | "failure";
 
@@ -51,6 +52,7 @@ export default function Command() {
           headers: { Referer: "http://finance.sina.com.cn" },
         });
         const nasdaqData = await nasdaqResponse.text();
+        // console.log(nasdaqData)
         const nasdaqDataArry = nasdaqData.split(",");
         const nasdaqIndex = Number(nasdaqDataArry[1]).toFixed(2);
         setInt_nasdaq(nasdaqIndex);
@@ -181,7 +183,7 @@ export default function Command() {
         title="Whole market sentiment"
         subtitle={temperature === "" ? "Loading..." : temperature + ", " + temcomment}
         actions={
-          <ActionPanel title="Open the data source -- 有知有行">
+          <ActionPanel title="Open the data source website">
             <Action.OpenInBrowser url="https://youzhiyouxing.cn/data" />
           </ActionPanel>
         }
@@ -195,13 +197,13 @@ export default function Command() {
           </ActionPanel>
         }
       />
-      <List.Item title="SSE 上证指数" subtitle={sh001 === "" ? "Loading..." : sh001} />
-      <List.Item title="SZSE 深证指数" subtitle={hs300 === "" ? "Loading..." : hs300} />
-      <List.Item title="NASDAQ 纳斯达克指数" subtitle={int_nasdaq === "" ? "Loading..." : int_nasdaq} />
-      <List.Item title="S&P 500 标普500指数" subtitle={int_sp500 === "" ? "Loading..." : int_sp500} />
-      <List.Item title="DJIA 道琼斯指数" subtitle={int_dji === "" ? "Loading..." : int_dji} />
-      <List.Item title="STI 新加坡指数" subtitle={b_FSSTI === "" ? "Loading..." : b_FSSTI} />
-      <List.Item title="Nikkei 225 日经指数" subtitle={int_nikkei === "" ? "Loading..." : int_nikkei} />
+      <List.Item title="SSE" subtitle={sh001 === "" ? "Loading..." : sh001} />
+      <List.Item title="SZSE" subtitle={hs300 === "" ? "Loading..." : hs300} />
+      <List.Item title="NASDAQ" subtitle={int_nasdaq === "" ? "Loading..." : int_nasdaq} />
+      <List.Item title="S&P 500" subtitle={int_sp500 === "" ? "Loading..." : int_sp500} />
+      <List.Item title="DJIA" subtitle={int_dji === "" ? "Loading..." : int_dji} />
+      <List.Item title="STI" subtitle={b_FSSTI === "" ? "Loading..." : b_FSSTI} />
+      <List.Item title="Nikkei 225" subtitle={int_nikkei === "" ? "Loading..." : int_nikkei} />
     </List>
   );
 }
